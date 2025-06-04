@@ -1,0 +1,227 @@
+* {
+	background-color: #fcf5e5;
+	box-sizing: border-box;
+	font-family: poppins;
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	align-items: center;
+	background-color: #ffffff;
+	display: flex;
+	height: 46px;
+	justify-content: center;
+	img {
+		background-color: #ffffff;
+		height: 26px;
+		width: 94px;
+	}
+}
+main {
+	padding: 30px 100px;
+}
+header {
+	border-bottom: 1px solid #21212166;
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 20px;
+}
+.profile {
+	display: flex;
+	gap: 20px;
+}
+.avatar img {
+	border-radius: 10px;
+	height: 180px;
+	width: 180px;
+}
+.bio-data {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.about {
+	h1 {
+		font-size: 32px;
+		font-weight: 500;
+	}
+	p {
+		color: #212121b2;
+	}
+}
+.edit span {
+	padding-right: 10px;
+	color: #212121b2;
+}
+.new-post {
+	align-items: baseline;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+.new-post-btn button {
+	background-color: #212121;
+	border-radius: 8px;
+	color: #fcf5e5;
+	gap: 8px;
+	padding: 10px;
+}
+.create-nw-post {
+	* {
+		background-color: #ffffff;
+		color: #212121;
+	}
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0px 0px 5px #21212166;
+	padding: 20px;
+	width: 300px;
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.714);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	*{
+		background-color: #ffffff;
+		color: #212121;
+	}
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.closeModalButton{
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: #0b0b0b;
+	font-size: 1.5rem;
+
+}
+
+#form {
+	display: flex;
+	flex-direction: column;
+	background-color: #ffffff;
+	input {
+		border-radius: 5px;
+		padding: 5px;
+	}
+}
+.form-properties {
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 10px 0;
+	border: none;
+	border-radius: 8px;
+	gap: 5px;
+	box-shadow: 0px 0px 5px #21212166;
+	padding: 10px;
+}
+.new-post-btn {
+	background-color: #212121;
+	border-radius: 8px;
+	color: #fcf5e5;
+	cursor: pointer;
+	font-size: 16px;
+	/* padding: 10px 25px; */
+}
+
+.grid {
+	border-bottom: 1px solid #21212166;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding: 30px 0;
+	row-gap: 20px;
+}
+.card {
+	img {
+		border-radius: 8px;
+		height: 413px;
+		width: 413px;
+	}
+}
+.card-text {
+	display: flex;
+	justify-content: space-between;
+}
+
+.profile-header {
+	position: relative;
+}
+.edit-bioData {
+	position: absolute;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	padding: 50px 0 20px 0;
+	text-align: center;
+}
+
+#liked{
+	fill: red;
+}
+
+/* RESPONIVENESS */
+@media screen and (max-width: 768px) {
+	main {
+		padding: 30px 20px;
+	}
+	header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.profile {
+		flex-direction: column;
+	}
+	.avatar img {
+		height: 80px;
+		width: 80px;
+	}
+	.about {
+		h1 {
+			font-size: 20px;
+		}
+	}
+	.new-post-btn button {
+		width: 288px;
+	}
+	.edit {
+		padding: 20px 0;
+	}
+	.grid {
+		display: block;
+		flex-direction: column;
+		padding-bottom: 10px;
+		row-gap: 20px;
+	}
+	.card {
+		padding-bottom: 20px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
