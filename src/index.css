@@ -178,6 +178,11 @@ footer {
 	text-align: center;
 }
 
+
+.like-icon:hover {
+	cursor: pointer;
+}
+
 #liked{
 	fill: red;
 }

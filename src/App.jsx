@@ -14,7 +14,7 @@ const cards = [
 		title: "Val Thorens",
 		icon: <FontAwesomeIcon icon={faHeart} />,
 		iconName: "love-icon",
-		liked: false,
+		liked: false, // Initial state for the like button
 	},
 	{
 		id: 2,
@@ -22,7 +22,6 @@ const cards = [
 		title: "Restaurant terrace",
 		icon: <FontAwesomeIcon icon={faHeart} />,
 		iconName: "love-icon",
-		liked: false,
 	},
 	{
 		id: 3,
@@ -30,7 +29,6 @@ const cards = [
 		title: "An outdoor cafe",
 		icon: <FontAwesomeIcon icon={faHeart} />,
 		iconName: "love-icon",
-		liked: false,
 	},
 	{
 		id: 4,
@@ -38,7 +36,6 @@ const cards = [
 		title: "A very long bridge, over the forest...",
 		icon: <FontAwesomeIcon icon={faHeart} />,
 		iconName: "love-icon",
-		liked: false,
 	},
 	{
 		id: 5,
@@ -46,7 +43,6 @@ const cards = [
 		title: "Tunnel with morning light",
 		icon: <FontAwesomeIcon icon={faHeart} />,
 		iconName: "love-icon",
-		liked: false,
 	},
 	{
 		id: 6,
@@ -54,31 +50,23 @@ const cards = [
 		title: "Mountain house",
 		icon: <FontAwesomeIcon icon={faHeart} />,
 		iconName: "love-icon",
-		liked: false,
 	},
 ];
 
-function saveCards(cards) {
-	localStorage.setItem("cards", JSON.stringify(cards));
-}
-saveCards(cards);
+// function saveCards(cards) {
+// 	localStorage.setItem("cards", JSON.stringify(cards));
+// }
+// saveCards(cards);
 
 // function loadCards() {
-// 	const storedCards = localStorage.getItem("cards");
-// 	return storedCards ? JSON.parse(storedCards) : cards;
+// 	const storedCards = JSON.parse(localStorage.getItem("cards"));
+// 	console.log(storedCards)
+// 	return storedCards ? storedCards : cards;
 // }
 // loadCards();
 
 export default function App() {
-
-	// const storeCards = localStorage.getItem("cards");
-	// const storedCards = JSON.parse(storeCards || "[]");
-	// console.log(storedCards)
-// If no cards are stored, use the default cards
 	const [newCards, setNewCards] = useState(cards);
-
-	
-
 	return (
 		<div className="container">
 			<Logo />

@@ -7,11 +7,15 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Profile({ newCards, setNewCards }) {
+
 	const [newPost, setNewPost] = useState(false);
 	const [editProfile, setEditProfile] = useState(false);
-	const [avatarURL, setAvatarURL] = useState("");
-	const [occupation, setOccupation] = useState("");
-	const [name, setName] = useState("");
+	const [avatarURL, setAvatarURL] = useState(() => localStorage.getItem("avatar") || "./avatar.png");
+	const [occupation, setOccupation] = useState(() => localStorage.getItem("occupation") || "Civil Aviator");
+	const [name, setName] = useState(() => localStorage.getItem("name") || "Bessie Coleman");
+	const [newName, setNewName] = useState(name);
+	const [newOccupation, setNewOccupation] = useState(occupation);
+	const [newAvatarURL, setNewAvatarURL] = useState(avatarURL);
 
 	const handleNewPostClick = (e) => {
 		e.preventDefault();
@@ -25,9 +29,9 @@ export default function Profile({ newCards, setNewCards }) {
 
 	const bioData = [
 		{
-			name: name || "Bessie Coleman",
-			occupation: occupation || "Civil Aviator",
-			avatar: avatarURL || "./avatar.png",
+			name: newName,
+			occupation: newOccupation,
+			avatar: newAvatarURL,
 		},
 	];
 
@@ -37,11 +41,15 @@ export default function Profile({ newCards, setNewCards }) {
 				<EditProfile
 					occupation={occupation}
 					name={name}
+					avatarURL={avatarURL}
 					setAvatarURL={setAvatarURL}
 					setOccupation={setOccupation}
 					setName={setName}
 					setEditProfile={setEditProfile}
 					editProfile={editProfile}
+					setNewName={setNewName}
+					setNewOccupation={setNewOccupation}
+					setNewAvatarURL={setNewAvatarURL}
 				/>
 			)}
 			{bioData.map((data) => (

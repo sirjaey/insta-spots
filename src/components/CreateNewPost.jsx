@@ -12,6 +12,11 @@ export default function CreateNewPost({ newCards, setNewCards, newPost, setNewPo
 		setImageURL(URL.createObjectURL(event.target.files[0]));
 	};
 
+	function saveCards(cards) {
+		localStorage.setItem("cards", JSON.stringify(cards));
+	}
+	
+
 	function handleSubmit(e) {
 		e.preventDefault();
 		if (
@@ -30,7 +35,10 @@ export default function CreateNewPost({ newCards, setNewCards, newPost, setNewPo
 			iconName: "love-icon",
 			liked: false,
 		};
+
 		setNewCards((prevCards) => [...prevCards, newCard]);
+		saveCards(newCards);
+		// console.log(newCards);
 		setTitle("");
 		setImageURL("");
 		setUrl("");

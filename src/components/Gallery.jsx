@@ -6,37 +6,31 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 export function Gallery({ newCards }) {
 	
 	const [liked, setLiked] = useState(null);
-
-	
 	
 	// const storedCards = localStorage.getItem("cards");
 	// const juwa = JSON.parse(storedCards);
 	// // console.log(juwa)
 
-	let card;
+	
 
 	function handleLike(id) {
-		const card = newCards.find((c) => c.id === id);
+		const card = newCards.find((like) => like.id === id)
 		if (card) {
 			// Toggle the liked state of the card
 			card.liked = !card.liked;
-			console.log(card.liked)
+			setLiked(card.liked);
+			console.log(card.liked);
 		}
 	}
 
-	console.log(card)
-	
-	
-
-	
 
 	// const storeCards = localStorage.getItem("cards");
-	const storedCards = newCards || JSON.parse(localStorage.getItem("cards"));
+	// const storedCards = JSON.parse(localStorage.getItem("cards"));
 	// console.log(storedCards)
 
 	return (
 		<div className="grid">
-			{storedCards.map((card, i) => (
+			{newCards.map((card, i) => (
 				<div className="card" key={i}>
 					<img
 						src={card.image}
@@ -47,17 +41,25 @@ export function Gallery({ newCards }) {
 						<div>
 							<p>{card.title}</p>
 						</div>
-						<div onClick={() => {handleLike(card.id)
-						}}>
+						<div
+							onClick={() => {
+								handleLike(card.id);
+							}}
+							className="like-icon">
 							{card.liked ? (
-								<FontAwesomeIcon icon={faHeart} fill="red" />
+								<FontAwesomeIcon icon={faHeart} style={{ color: "#f41515" }} />
 							) : (
 								card.icon
 							)}
+							{/* {card.liked ? (
+								<FontAwesomeIcon icon={faHeart} fill="red" />
+							) : (
+								
+							)} */}
 						</div>
 					</div>
 				</div>
 			))}
 		</div>
 	);
-}
+} 
