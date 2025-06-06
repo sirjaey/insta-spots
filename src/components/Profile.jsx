@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import EditProfile from "./EditProfile.jsx"
 import CreateNewPost from "./CreateNewPost.jsx";
 
@@ -6,16 +6,39 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-export default function Profile({ newCards, setNewCards }) {
-
+export default function Profile({ newCards, setNewCards, setPreviewCard, previewCard }) {
 	const [newPost, setNewPost] = useState(false);
 	const [editProfile, setEditProfile] = useState(false);
-	const [avatarURL, setAvatarURL] = useState(() => localStorage.getItem("avatar") || "./avatar.png");
-	const [occupation, setOccupation] = useState(() => localStorage.getItem("occupation") || "Civil Aviator");
-	const [name, setName] = useState(() => localStorage.getItem("name") || "Bessie Coleman");
+
+	const [avatarURL, setAvatarURL] = useState(
+		() => localStorage.getItem("avatar") || "./avatar.png"
+	);
+	const [occupation, setOccupation] = useState(
+		() => localStorage.getItem("occupation") || "Civil Aviator"
+	);
+	const [name, setName] = useState(
+		() => localStorage.getItem("name") || "Bessie Coleman"
+	);
 	const [newName, setNewName] = useState(name);
 	const [newOccupation, setNewOccupation] = useState(occupation);
 	const [newAvatarURL, setNewAvatarURL] = useState(avatarURL);
+
+	useEffect(() => {
+		const handleKeyDown = (event) => {
+			if (event.key === "Escape") {
+				setEditProfile(false);
+				setNewPost(false);
+				setPreviewCard(false);
+			}
+		};
+
+		if (editProfile || newPost || previewCard) {document.addEventListener("keydown", handleKeyDown);
+		}
+
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [setEditProfile, setNewPost, editProfile, newPost, setPreviewCard, previewCard]);
 
 	const handleNewPostClick = (e) => {
 		e.preventDefault();

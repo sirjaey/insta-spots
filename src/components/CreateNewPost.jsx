@@ -11,10 +11,6 @@ export default function CreateNewPost({ newCards, setNewCards, newPost, setNewPo
 	const handleImageChange = (event) => {
 		setImageURL(URL.createObjectURL(event.target.files[0]));
 	};
-
-	function saveCards(cards) {
-		localStorage.setItem("cards", JSON.stringify(cards));
-	}
 	
 
 	function handleSubmit(e) {
@@ -37,8 +33,7 @@ export default function CreateNewPost({ newCards, setNewCards, newPost, setNewPo
 		};
 
 		setNewCards((prevCards) => [...prevCards, newCard]);
-		saveCards(newCards);
-		// console.log(newCards);
+		console.log(newCards);
 		setTitle("");
 		setImageURL("");
 		setUrl("");
@@ -88,7 +83,7 @@ export default function CreateNewPost({ newCards, setNewCards, newPost, setNewPo
 						/>
 					</div>
 					<button id="submit" className="new-post-btn">
-						Submit
+						Add New Post
 					</button>
 				</form>
 			</div>

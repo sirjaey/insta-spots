@@ -53,6 +53,11 @@ header {
 .edit span {
 	padding-right: 10px;
 	color: #212121b2;
+
+	&:hover {
+		color: #212121;
+		cursor: pointer;
+	}
 }
 .new-post {
 	align-items: baseline;
@@ -65,7 +70,32 @@ header {
 	border-radius: 8px;
 	color: #fcf5e5;
 	gap: 8px;
+	padding: 10px 50px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #000;
+	}
+}
+
+#submit{
+	width: 100%;
+	&:hover {
+		background-color: #030101;
+	}
+}
+.edit-profile-btn {
+	border: none;
+	cursor: pointer;
 	padding: 10px;
+	background-color: #000;
+	width: 100px;
+	button{
+		background-color: #000;
+		&:hover {
+			background-color: #212121;
+		}
+	}
 }
 .create-nw-post {
 	* {
@@ -92,13 +122,14 @@ header {
 }
 
 .modal-content {
+	
+	border-radius: 10px;
 	*{
 		background-color: #ffffff;
 		color: #212121;
 	}
 	background-color: #ffffff;
 	padding: 20px;
-	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -111,13 +142,24 @@ header {
 	cursor: pointer;
 	color: #0b0b0b;
 	font-size: 1.5rem;
+	&:hover {
+		color: #ff0000;
+	}
+}
 
+.gallery-image:hover {
+	cursor: pointer;
+}
+
+.preview{
+	background-color: rgba(0, 0, 0, 0.033);
 }
 
 #form {
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
+	border-radius: 10px;
 	input {
 		border-radius: 5px;
 		padding: 5px;
@@ -141,7 +183,6 @@ header {
 	color: #fcf5e5;
 	cursor: pointer;
 	font-size: 16px;
-	/* padding: 10px 25px; */
 }
 
 .grid {
@@ -149,9 +190,10 @@ header {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	gap: 20px;
 	padding: 30px 0;
-	row-gap: 20px;
 }
+ 
 .card {
 	img {
 		border-radius: 8px;
@@ -178,17 +220,56 @@ footer {
 	text-align: center;
 }
 
-
 .like-icon:hover {
 	cursor: pointer;
 }
 
-#liked{
-	fill: red;
+/* RESPONIVENESS */
+@media screen and (max-width: 1024px) {
+	main {
+		padding: 30px 80px;
+	}
+	.grid{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(auto-fill, minmax(413px, 1fr));
+		gap: 20px;
+		padding: 50px 0;
+	}
+	.card {
+		img {
+			height: 413px;
+			width: 413px;
+		}
+	}
+	.card-text {
+		padding: 10px 20px;
+	}
+	
 }
 
-/* RESPONIVENESS */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
+	main {
+		padding: 30px 50px;
+	}
+	.grid{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 50px 0;
+	}
+	.card {
+		img {
+			height: 300px;
+			width: 300px;
+		}
+	}
+	.new-post-btn button {
+		width: 200px;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
 	main {
 		padding: 30px 20px;
 	}
@@ -202,8 +283,8 @@ footer {
 		flex-direction: column;
 	}
 	.avatar img {
-		height: 80px;
-		width: 80px;
+		height: 180px;
+		width: 180px;
 	}
 	.about {
 		h1 {

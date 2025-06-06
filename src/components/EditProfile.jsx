@@ -14,6 +14,7 @@ export default function EditProfile({
 	setNewOccupation,
 	setNewAvatarURL,
 }) {
+	
 	const handleImageChange = (event) => {
 		setAvatarURL(URL.createObjectURL(event.target.files[0]));
 	};
@@ -39,34 +40,40 @@ export default function EditProfile({
 		setEditProfile(!editProfile);
 	};
 
+
 	return (
-		<div className="edit-bioDat modal-overlay">
+		<div className="create-new-post modal-overlay">
 			<span onClick={handleCloseModal} className="closeModalButton">
 				<FontAwesomeIcon icon={faXmark} />
 			</span>
-			<form action="" onSubmit={handleSubmitEdit} className="modal-content">
-				<div className="form-properties">
-					<label htmlFor="name">Enter your full name</label>
-					<input
-						type="text"
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-					/>
-				</div>
-				<div className="form-properties">
-					<label htmlFor="occupation">What's your occupation?</label>
-					<input
-						type="text"
-						value={occupation}
-						onChange={(e) => setOccupation(e.target.value)}
-					/>
-				</div>
-				<div className="form-properties">
-					<label htmlFor="name">Upload profile picture</label>
-					<input type="file" accept="image/*" onChange={handleImageChange} />
-				</div>
-				<button>Submit</button>
-			</form>
+
+			<div id="form">
+				<form action="" onSubmit={handleSubmitEdit} className="modal-content">
+					<div className="form-properties">
+						<label htmlFor="name">Enter your full name</label>
+						<input
+							type="text"
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+						/>
+					</div>
+					<div className="form-properties">
+						<label htmlFor="occupation">What's your occupation?</label>
+						<input
+							type="text"
+							value={occupation}
+							onChange={(e) => setOccupation(e.target.value)}
+						/>
+					</div>
+					<div className="form-properties">
+						<label htmlFor="name">Upload profile picture</label>
+						<input type="file" accept="image/*" onChange={handleImageChange} />
+					</div>
+					<button id="submit" className="new-post-btn edit-profile-btn">
+						Save Changes
+					</button>
+				</form>
+			</div>
 		</div>
 	);
 }
